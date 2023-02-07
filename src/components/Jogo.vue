@@ -1,5 +1,6 @@
 <template>
     <div id="jogo">
+        <ConfettiExplosion v-if="showConfetti" :stageHeight="400" :stageWidth="1000" :particleSize="15"/>
         <Forca
         :erros="erros"
         />
@@ -30,6 +31,7 @@ import Forca from './Forca.vue'
 import Palavra from './Palavra.vue'
 import Teclado from './Teclado.vue'
 import Final from './Final.vue'
+import ConfettiExplosion from "vue-confetti-explosion";
 
 export default {
     name: 'Jogo-nome',
@@ -43,14 +45,23 @@ export default {
         jogar: Function,
         jogarNovamente: Function
     },
-    methods:{
-
+    data(){
+        return{
+            showConfetti: false
+        }
+    },
+    watch:{
+        etapa(newValue) {
+            if(newValue === 'ganhador')
+                this.showConfetti = true;
+        }
     },
     components:{
         Forca,
         Palavra,
         Teclado,
-        Final
+        Final,
+        ConfettiExplosion
     }
 
 }
