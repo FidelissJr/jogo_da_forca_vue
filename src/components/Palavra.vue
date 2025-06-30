@@ -5,13 +5,10 @@
         {{ verificarLetra(letra) || etapa === "enforcado" ? letra : "" }}
       </div>
     </div>
-    <Dicas :dicas="dicas" />
   </div>
 </template>
 
 <script>
-import Dicas from "./Dicas.vue";
-
 export default {
   name: "Palavra-nome",
   props: {
@@ -19,9 +16,6 @@ export default {
     dicas: Array,
     verificarLetra: Function,
     etapa: String,
-  },
-  components: {
-    Dicas,
   },
 };
 </script>

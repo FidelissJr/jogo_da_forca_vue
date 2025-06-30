@@ -6,7 +6,11 @@
       :stageWidth="1000"
       :particleSize="15"
     />
+
+    <Dicas :dicas="dicas" />
+
     <Forca :erros="erros" />
+
     <Palavra
       :palavra="palavra"
       :dicas="dicas"
@@ -35,6 +39,7 @@ import Forca from "./Forca.vue";
 import Palavra from "./Palavra.vue";
 import Teclado from "./Teclado.vue";
 import Final from "./Final.vue";
+import Dicas from "./Dicas.vue";
 import ConfettiExplosion from "vue-confetti-explosion";
 
 export default {
@@ -65,6 +70,7 @@ export default {
     Palavra,
     Teclado,
     Final,
+    Dicas,
     ConfettiExplosion,
   },
 };
