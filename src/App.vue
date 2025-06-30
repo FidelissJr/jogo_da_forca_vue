@@ -88,8 +88,8 @@ export default {
       this.setDicas(palavraAleatoria.dicas);
     },
     jogarNovamente: function () {
-      this.gerarJogo();
       this.resetar();
+      this.gerarJogo();
     },
     voltarMenu: function () {
       this.etapa = "inicio";
