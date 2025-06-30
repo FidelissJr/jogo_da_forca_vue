@@ -40,7 +40,7 @@ export const palavras = [
     ],
   },
   {
-    resposta: "guerramundial",
+    resposta: "guerra mundial",
     dicas: [
       "Conflito envolvendo vários países",
       "Aconteceu duas vezes no século XX",

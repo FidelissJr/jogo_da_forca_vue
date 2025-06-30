@@ -70,7 +70,12 @@ export default {
       if (this.erros == 6) this.etapa = "enforcado";
     },
     verificarAcertos: function () {
-      let letrasUnicas = [...new Set(this.palavra.split(""))];
+      let letrasUnicas = [
+        ...new Set(
+          this.palavra.split("").filter((letter) => letter.trim() !== "")
+        ),
+      ];
+      console.log(letrasUnicas);
       if (letrasUnicas.length === this.letras.length - this.erros) {
         this.etapa = "ganhador";
       }

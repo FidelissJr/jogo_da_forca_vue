@@ -1,8 +1,16 @@
 <template>
   <div id="palavra">
     <div class="palavra-letras">
-      <div class="palavra-letra" v-for="(letra, key) in palavra" :key="key">
-        {{ verificarLetra(letra) || etapa === "enforcado" ? letra : "" }}
+      <div v-for="(letra, key) in palavra" :key="key">
+        <span :class="letra != ' ' ? 'palavra-letra' : 'espaco'">
+          {{
+            verificarLetra(letra) || etapa === "enforcado"
+              ? letra
+              : letra === " "
+              ? " "
+              : ""
+          }}
+        </span>
       </div>
     </div>
   </div>
@@ -42,5 +50,9 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.espaco {
+  margin: 0 12px 0 12px;
 }
 </style>
