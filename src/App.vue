@@ -1,7 +1,12 @@
 <template>
   <div id="app">
-    <h1>Jogo da Forca</h1>
-    <section id="jogo">
+    <section id="menu" v-if="etapa == 'inicio'">
+      <h1>Jogo da Forca</h1>
+      <button class="teclado-button btn btn-primary" v-on:click="iniciarJogo">
+        Iniciar Jogo
+      </button>
+    </section>
+    <section id="jogo" v-else>
       <Jogo
         :erros="erros"
         :palavra="palavra"
@@ -11,6 +16,7 @@
         :letras="letras"
         :jogar="jogar"
         :jogarNovamente="jogarNovamente"
+        :voltarMenu="voltarMenu"
       />
     </section>
   </div>
@@ -29,15 +35,12 @@ export default {
   data() {
     return {
       tela: "inicio",
-      etapa: "jogo",
+      etapa: "inicio",
       palavra: "",
       dicas: [],
       erros: 0,
       letras: [],
     };
-  },
-  mounted() {
-    this.iniciarJogo();
   },
   methods: {
     setPalavra: function (palavra) {
@@ -81,6 +84,14 @@ export default {
     },
     jogarNovamente: function () {
       this.gerarJogo();
+      this.resetar();
+    },
+    voltarMenu: function () {
+      this.etapa = "inicio";
+      this.resetar();
+    },
+    resetar: function () {
+      this.etapa = "inicio";
       this.erros = 0;
       this.letras = [];
     },
@@ -94,5 +105,14 @@ export default {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+}
+
+#menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 20px;
 }
 </style>

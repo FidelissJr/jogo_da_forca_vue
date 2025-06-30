@@ -25,6 +25,7 @@
       :etapa="etapa"
       :texto="etapa === 'ganhador' ? 'Parabéns :)' : 'Tente de novo :('"
       :jogarNovamente="jogarNovamente"
+      :voltarMenu="voltarMenu"
     />
   </div>
 </template>
@@ -47,9 +48,7 @@ export default {
     letras: Array,
     jogar: Function,
     jogarNovamente: Function,
-  },
-  mounted() {
-    console.log(this.$props);
+    voltarMenu: Function,
   },
   data() {
     return {
