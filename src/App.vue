@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <section id="menu" v-if="etapa == 'inicio'">
-      <h1>Jogo da Forca</h1>
+      <h1>História na Forca</h1>
       <button class="teclado-button btn btn-primary" v-on:click="iniciarJogo">
         Iniciar Jogo
       </button>
