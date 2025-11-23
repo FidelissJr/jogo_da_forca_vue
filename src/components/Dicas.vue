@@ -1,6 +1,8 @@
 <template>
   <div class="carousel-container">
-    <button @click="voltarDica" :disabled="indiceAtual === 0">⬅</button>
+    <button @click="voltarDica" :disabled="indiceAtual === 0">
+      <i class="fa fa-arrow-left" style="font-size: 1.4rem; color: #e74c3c"></i>
+    </button>
 
     <div class="dica-quadro">
       <p>{{ dicas[indiceAtual] }}</p>

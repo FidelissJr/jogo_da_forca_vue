@@ -41,6 +41,7 @@ import Teclado from "./Teclado.vue";
 import Final from "./Final.vue";
 import Dicas from "./Dicas.vue";
 import ConfettiExplosion from "vue-confetti-explosion";
+import usuarioService from "@/services/usuarioService";
 
 export default {
   name: "Jogo-nome",
@@ -54,6 +55,7 @@ export default {
     jogar: Function,
     jogarNovamente: Function,
     voltarMenu: Function,
+    usuario: String,
   },
   data() {
     return {
@@ -62,7 +64,7 @@ export default {
   },
   watch: {
     etapa(newValue) {
-      if (newValue === "ganhador") this.showConfetti = true;
+      if (newValue === "ganhador") this.ganharJogo();
     },
   },
   components: {
@@ -72,6 +74,16 @@ export default {
     Final,
     Dicas,
     ConfettiExplosion,
+  },
+  methods: {
+    async ganharJogo() {
+      this.showConfetti = true;
+      try {
+        await usuarioService.pontuar(this.usuario);
+      } catch (error) {
+        console.error("Erro ao atualizar pontuação:", error);
+      }
+    },
   },
 };
 </script>
